@@ -1,13 +1,13 @@
-# @epas/node-client
+# @epac/node-client
 
 A Node.js SDK for the ePacific Telecom platform.  Node.js applications can use this library to respond to [webhooks] and to make [REST API calls] to a sbc platform.
 
-> Note: One suggested way to get up and running with this Node SDK is to use the `npx create-epas-app` command, which will scaffold out a application for you using this SDK.
+> Note: One suggested way to get up and running with this Node SDK is to use the `npx create-epac-app` command, which will scaffold out a application for you using this SDK.
 
 ### Webooks
 To respond to webhooks, you will need a lightweight http server.  An example is shown below using [express](expressjs.com).
 ```
-const {WebhookResponse} = require('@epas/node-client');
+const {WebhookResponse} = require('@epac/node-client');
 const express = require('express');
 const app = express();
 
@@ -37,10 +37,10 @@ app.listen(port, () => {
 If your server includes a Signature header on webhook requests, you can verify that the request was signed by using your webhook secret as follows:
 
 ```
-const {WebhookResponse} = require('@epas/node-client');
+const {WebhookResponse} = require('@epac/node-client');
 
 if (process.env.WEBHOOK_SECRET) {
-  app.use(WebhookResponse.verifyepasSignature(process.env.WEBHOOK_SECRET));
+  app.use(WebhookResponse.verifyepacSignature(process.env.WEBHOOK_SECRET));
 }
 
 const express = require('express');
@@ -50,7 +50,7 @@ app.use(express.json());
 
 /* make sure this comes after the body has been converted to json */
 if (process.env.WEBHOOK_SECRET) {
-  app.use(WebhookResponse.verifyepasSignature(process.env.WEBHOOK_SECRET));
+  app.use(WebhookResponse.verifyepacSignature(process.env.WEBHOOK_SECRET));
 }
 
 /* if we get here we know the request was signed with our webhook secret */
@@ -62,7 +62,7 @@ app.post('/my-app', (req, res) => { ...})
 #### Creating a client
 To use the REST API you need to know your account sid and api key.  You generate a REST client as shown below.
 ```
-const client = require('@epas/node-client')(<my-account-sid>, <my-api-key>, {
+const client = require('@epac/node-client')(<my-account-sid>, <my-api-key>, {
   baseUrl: http://<my-sbc>
 });
 ```
@@ -100,7 +100,7 @@ To update a call in progress -- for example to mute/unmute, hangup the call etc 
 
 ### Example 
 
-See [here](https://github.com/epacificnet/epas-node-example-app) for a full-featured example application built using this API.
+See [here](https://github.com/epacificnet/epac-node-example-app) for a full-featured example application built using this API.
 
 ### Status
 This project is under active development and is currently very much pre-beta.
