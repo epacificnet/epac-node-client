@@ -1,6 +1,6 @@
 {
   "name": "@epac/node-client",
-  "version": "0.3.31",
+  "version": "0.3.32",
   "description": "Node.js client for building applications",
   "main": "lib/index.js",
   "scripts": {
