@@ -8,7 +8,9 @@
     "coverage": "nyc --reporter html --report-dir ./coverage npm run test",
     "jslint": "eslint lib"
   },
-  "author": "epacificnet",
+  "author": {
+    "name": "tin"
+  },
   "repository": {
     "type": "git",
     "url": "git+ssh:https://github.com/epacificnet/epas-node-client.git"
